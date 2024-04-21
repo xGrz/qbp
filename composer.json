@@ -1,5 +1,5 @@
 {
-    "name": "xgrz/quickpanel",
+    "name": "xgrz/quick-blade-panel",
     "description": "Laravel blade quick panel",
     "license": "MIT",
     "keywords": [
@@ -8,13 +8,13 @@
     ],
     "autoload": {
         "psr-4": {
-            "xGrz\\QuickPanel\\": "src/"
+            "xGrz\\Qbp\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "xGrz\\QuickPanel\\QucikPanelServiceProvider"
+                "xGrz\\Qbp\\QuickBladePanelServiceProvider"
             ]
         }
     },

@@ -1,10 +1,10 @@
 <?php
 
-namespace xGrz\QuickPanel;
+namespace xGrz\Qbp;
 
 use Illuminate\Support\ServiceProvider;
 
-class QuickPanelServiceProvider extends ServiceProvider
+class QuickBladePanelServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
@@ -15,8 +15,8 @@ class QuickPanelServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'qp');
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/quickPanel'),
-            ], 'qp-publish');
+                __DIR__.'/../resources/views' => resource_path('views/vendor/quick-blade-panel'),
+            ], 'quick-blade-panel-publish');
         }
     }
 }
