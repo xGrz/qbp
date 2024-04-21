@@ -2,7 +2,7 @@
 
 ## Code example:
 ``` 
-<x-p::pagination.info :source="$shipments"/>
+<x-p::pagination.info :source="$items"/>
 
 <x-p::table>
     <x-p::table.head>
@@ -24,6 +24,6 @@
 </x-p::table.tbody>
 
  <div class="py-3">
-    <x-payu::pagination :source="$shipments"/>
+    <x-p::pagination :source="$items"/>
 </div>
 ```

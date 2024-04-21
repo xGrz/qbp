@@ -1,7 +1,10 @@
 # Table
 
+![Table example](images/table.jpg)
+
 ## Code example:
 ``` 
+@if($items)
 <x-p::table>
     <x-p::table.head>
         <x-p::table.row>
@@ -20,4 +23,9 @@
         @endforeach
     </x-p::table.body>
 </x-p::table.tbody>
+@else
+    <x-p::not-found message="Items for found."/>
+@endif
 ```
+
+Item [not found](NotFound.md) component description

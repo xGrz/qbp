@@ -11,7 +11,6 @@ composer require xgrz/quick-blade-panel
 
 ## Components
 
-* [Default view template](docs/DefaultViewTemplate.md)
 * [Table](docs/Table.md) / [With pagination](docs/Table-Pagination.md)
 * [Pagination](docs/Pagination.md)
 * [Modal](docs/Modal.md)
@@ -22,6 +21,10 @@ composer require xgrz/quick-blade-panel
 * [NotFound](docs/NotFound.md)
 * [Paper](docs/Paper.md)
 * [Inline status](docs/InlineStatus.md)
+
+## Snippets
+* [Default view template](docs/DefaultViewTemplate.md)
+* [View with paginated table](docs/FullViewWithTable.md)
 
 ## Publish templates
 
