@@ -14,17 +14,13 @@
 </head>
 <body class="flex flex-col min-h-full">
 
-@include('dhl::navigation.container')
-@include('dhl::status')
+@include('p::navigation.container')
+@include('p::status')
 
 <main class="container px-4 mx-auto my-2 grow">
     @yield('content')
 </main>
 
-<footer class="px-4 py-6 mt-8 bg-slate-950 grow-0">
-    <div class="container px-4 mx-auto">
-        @yield('footer')
-    </div>
-</footer>
+@include('p::footer.footer')
 </body>
 </html>
