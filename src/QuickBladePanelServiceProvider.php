@@ -12,7 +12,7 @@ class QuickBladePanelServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'qp');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'p');
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/quick-blade-panel'),
