@@ -5,22 +5,22 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@if($appName){{ $appName }} | @endif {{ $title ?? 'Quick Blade Panel' }}</title>
-    @if($useTailwind)<script src="https://cdn.tailwindcss.com"></script>@endif
-    @if($useAlpine)<script src="//unpkg.com/alpinejs" defer></script>@endif
+    <title>@if($qbp_appName){{ $qbp_appName }} | @endif {{ $title ?? 'Quick Blade Panel' }}</title>
+    @if($qbp_useTailwind)<script src="https://cdn.tailwindcss.com"></script>@endif
+    @if($qbp_useAlpine)<script src="//unpkg.com/alpinejs" defer></script>@endif
     <style>
         @yield('css')
     </style>
 </head>
 <body class="flex flex-col min-h-full">
 
-@include($navigationTemplate ?? 'p::navigation.container')
+@include($qbp_navigationTemplate)
 @include('p::status')
 
 <main class="container px-4 mx-auto my-2 grow">
     @yield('content')
 </main>
 
-@include($footerTemplate ?? 'p::footer.footer')
+@include('p::footer.container')
 </body>
 </html>
