@@ -1,0 +1,32 @@
+{
+    "name": "xgrz/quickpanel",
+    "description": "Laravel blade quick panel",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "blade"
+    ],
+    "autoload": {
+        "psr-4": {
+            "xGrz\\QuickPanel\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "xGrz\\QuickPanel\\QucikPanelServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Grzegorz Byśkiniewicz",
+            "email": "grzesiek.byskiniewicz@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "laravel/framework": "^10.0|^11.0"
+    }
+}
