@@ -1,3 +1,3 @@
 <div>
-    {{ $source->links('payu::components.pagination.templates.default') }}
+    {{ $source->links('p::components.pagination.templates.default') }}
 </div>
