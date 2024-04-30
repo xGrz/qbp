@@ -1,16 +1,4 @@
-<div class="container mx-auto px-4">
-
-    @if (session()->has('success'))
-        <div class="py-2 px-2 bg-green-700 text-white font-bold rounded-md shadow-xl my-1">
-            {{ session('success') }}
-        </div>
-    @endif
-    @if (session()->has('error'))
-        <div class="py-2 px-2 bg-red-800 text-white font-bold rounded-md shadow-xl my-1">
-            {{ session('error') }}
-        </div>
-    @endif
-
-</div>
-
-
+{{--<x-p-toast severity="info" message="Info status"/>--}}
+{{--<x-p-toast severity="success" message="Success status"/>--}}
+<x-p-toast severity="warning" message="Warning status"/>
+{{--<x-p-toast severity="danger" message="Danger status"/>--}}

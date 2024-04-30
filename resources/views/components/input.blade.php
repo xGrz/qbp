@@ -1,7 +1,8 @@
 @props(['type' => 'text','name' => '','value' => '','step' => 1,'min' => null,'max' => null,'label' => '&nbsp;'])
 
 <?php
-$hasError = $errors->has($name);
+$errorName = str($name)->replace('[', '.')->replace(']', '')->toString();
+$hasError = $errors->has($errorName);
 $isNumeric = $type == 'number';
 ?>
 
@@ -20,7 +21,7 @@ $isNumeric = $type == 'number';
             ]) }}
 
             @class([
-                'w-full inline-block grow shrink border bg-slate-300 focus:bg-gray-200 text-slate-600 focus:text-slate-700 rounded-md focus:outline-none py-2 px-4 disabled:bg-gray-100 disabled:text-gray-400',
+                'w-full inline-block grow shrink border bg-slate-300 focus:bg-gray-200 text-slate-600 focus:text-slate-700 rounded-md focus:outline-none py-2 px-2 disabled:bg-gray-100 disabled:text-gray-400',
                 $hasError ? 'border-rose-500' : 'border-gray-300',
                 '[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none' => $isNumeric,
                 'text-right' => $isNumeric,
@@ -36,7 +37,7 @@ $isNumeric = $type == 'number';
             ])
             }}
     />
-    @error($name)
+    @error($errorName)
     <small class="text-red-600 text-sm mb-1 leading-none">{{ $message }}</small>
     @enderror
 
