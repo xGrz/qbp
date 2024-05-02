@@ -9,8 +9,9 @@ use xGrz\Qbp\Enums\StatusType;
 class Toast extends Component
 {
     protected ?StatusType $severity;
+    protected string $baseColor = 'green';
 
-    public function __construct(protected string $message = '', string $severity = 'info', protected int $duration = 10000)
+    public function __construct(protected string $message = '', string $severity = 'info', protected int $duration = 8000)
     {
         $this->severity = StatusType::tryFrom(strtolower($severity));
         if (!$this->severity) throw new \Exception('Invalid severity `' . $severity . '`. Allowed values are: `info`, `success`, `warning` and `danger`.');
@@ -22,10 +23,20 @@ class Toast extends Component
             || session()->has('success')
             || session()->has('warning')
             || session()->has('danger')) {
+            self::getBasicColor();
             return self::renderToast();
         }
-        return self::renderToast();
         return false;
+    }
+
+    private function getBasicColor(): void
+    {
+        $this->baseColor = match ($this->severity) {
+            StatusType::SUCCESS => 'green',
+            StatusType::WARNING => 'amber',
+            StatusType::DANGER => 'red',
+            default => 'blue',
+        };
     }
 
     private function renderToast(): View
@@ -34,6 +45,7 @@ class Toast extends Component
             'message' => $this->message,
             'severity' => $this->severity,
             'duration' => $this->duration,
+            'baseColor' => $this->baseColor,
         ]);
     }
 }

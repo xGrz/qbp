@@ -1,4 +1,9 @@
-{{--<x-p-toast severity="info" message="Info status"/>--}}
-{{--<x-p-toast severity="success" message="Success status"/>--}}
-<x-p-toast severity="warning" message="Warning status"/>
-{{--<x-p-toast severity="danger" message="Danger status"/>--}}
+@if(session()->has('success'))
+    <x-p-toast severity="success" message="{{session()->get('success')}}"/>
+@elseif(session()->has('warning'))
+    <x-p-toast severity="warning" message="{{session()->get('warning')}}"/>
+@elseif(session()->has('danger'))
+    <x-p-toast severity="danger" message="{{session()->get('danger')}}"/>
+@elseif(session()->has('info'))
+    <x-p-toast severity="info" message="{{session()->get('info')}}"/>
+@endif
