@@ -9,7 +9,7 @@ class Button extends Component
 {
 
     public array $componentProperties = [];
-    private array $classes = ['inline-block text-center select-none'];
+    private array $classes = ['inline-block text-center select-none transition-all'];
 
     public function __construct(string $size = 'regular', public ?string $href = null, $color = 'primary', bool $disabled = false)
     {
