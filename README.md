@@ -1,5 +1,6 @@
 # Laravel Quick Panel
 
+
 Package contains basic blade views for data presentation.
 This is free for private and commercial use AS IS.
 
@@ -15,8 +16,7 @@ composer require xgrz/quick-blade-panel
 * [Pagination](docs/Pagination.md)
 * [Modal](docs/Modal.md)
 * [Icons](docs/Icons.md)
-* [Button](docs/Button.md)
-* [Button-Link](docs/Button-Link.md)
+* [Button / Link button](docs/Button.md)
 * [Nav-Item](docs/Nav-Item.md)
 * [NotFound](docs/NotFound.md)
 * [Paper](docs/Paper.md)
