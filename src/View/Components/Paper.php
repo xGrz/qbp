@@ -7,11 +7,10 @@ use Illuminate\View\Component;
 
 class Paper extends Component
 {
-    public array $componentProperties = [];
+    public array $componentProperties = ['class' => 'bg-slate-800'];
 
-    public function __construct(string $background = 'bg-slate-800')
+    public function __construct()
     {
-        $this->componentProperties['background'] = $background;
     }
 
      public function render(): View
