@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use xGrz\Qbp\View\Components\Button;
 use xGrz\Qbp\View\Components\Paper;
+use xGrz\Qbp\View\Components\Table;
+use xGrz\Qbp\View\Components\TableBody;
+use xGrz\Qbp\View\Components\TableCell;
+use xGrz\Qbp\View\Components\TableFooter;
+use xGrz\Qbp\View\Components\TableHeader;
+use xGrz\Qbp\View\Components\TableHeading;
+use xGrz\Qbp\View\Components\TableRow;
 use xGrz\Qbp\View\Components\TextInput;
 use xGrz\Qbp\View\Components\Toast;
 
@@ -35,6 +42,14 @@ class QuickBladePanelServiceProvider extends ServiceProvider
         Blade::component('p-button', Button::class);
         Blade::component('p-textinput', TextInput::class);
         Blade::component('p-toast', Toast::class);
+
+        Blade::component('p-table', Table::class);
+        Blade::component('p-thead', TableHeader::class);
+        Blade::component('p-tbody', TableBody::class);
+        Blade::component('p-tfooter', TableFooter::class);
+        Blade::component('p-tr', TableRow::class);
+        Blade::component('p-th', TableHeading::class);
+        Blade::component('p-td', TableCell::class);
     }
 
     private function registerBladeShares(): void
