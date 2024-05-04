@@ -1,6 +1,6 @@
 <?php
 
-namespace xGrz\Qbp\View\Components;
+namespace xGrz\Qbp\View\Components\Table;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;

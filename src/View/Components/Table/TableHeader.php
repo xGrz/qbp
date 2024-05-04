@@ -1,12 +1,12 @@
 <?php
 
-namespace xGrz\Qbp\View\Components;
+namespace xGrz\Qbp\View\Components\Table;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use xGrz\Qbp\Traits\WithComponentProps;
 
-class TableRow extends Component
+class TableHeader extends Component
 {
     use WithComponentProps;
 
@@ -18,6 +18,6 @@ class TableRow extends Component
 
     public function render(): View
     {
-        return view('p::table.table-row', self::getComponentProperties());
+        return view('p::table.table-header', $this->getComponentProperties());
     }
 }
