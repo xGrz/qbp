@@ -4,7 +4,7 @@ namespace xGrz\Qbp\Traits;
 
 trait WithComponentProps
 {
-    public array $componentProps = [];
+    public array $componentProperties = [];
 
     protected function getComponentProperties(): array
     {
@@ -12,6 +12,12 @@ trait WithComponentProps
             $this->componentProperties['classes'] = implode(' ', $this->componentProperties['classes']);
         }
         return $this->componentProperties;
+    }
+
+    protected function addProperty(string $key, mixed $value): static
+    {
+        $this->componentProperties[$key] = $value;
+        return $this;
     }
 
     protected function addClass(string $class, string|null $prefix = null): static
@@ -33,7 +39,6 @@ trait WithComponentProps
             }
         }
     }
-
 
     protected function setupClasses(string $defaultClasses = null): void
     {

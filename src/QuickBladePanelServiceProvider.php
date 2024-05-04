@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use xGrz\Qbp\View\Components\Button;
+use xGrz\Qbp\View\Components\Form\Checkbox;
+use xGrz\Qbp\View\Components\Form\Select;
 use xGrz\Qbp\View\Components\Paper;
 use xGrz\Qbp\View\Components\Table\Table;
 use xGrz\Qbp\View\Components\Table\TableBody;
@@ -50,6 +52,9 @@ class QuickBladePanelServiceProvider extends ServiceProvider
         Blade::component('p-tr', TableRow::class);
         Blade::component('p-th', TableHeading::class);
         Blade::component('p-td', TableCell::class);
+
+        Blade::component('p-checkbox', Checkbox::class);
+        Blade::component('p-select', Select::class);
     }
 
     private function registerBladeShares(): void
