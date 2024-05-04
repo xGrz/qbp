@@ -18,6 +18,9 @@ class Checkbox extends Component
             ->addProperty('label', $label)
             ->addProperty('description', $description)
         ;
+
+        $this->componentProperties['checkboxClasses'] = 'cursor-pointer w-5 h-5 rounded border peer-focus:ring-4 peer-focus:ring-blue-800';
+        $this->componentProperties['descriptionClasses'] = 'text-sm text-slate-600';
     }
 
     public function render(): View
