@@ -11,7 +11,7 @@ class Checkbox extends Component
     use WithComponentProps;
 
 
-    public function __construct(protected ?string $asSwitch = null, ?string $id = null, string $label = '', string $description = null)
+    public function __construct(protected ?string $asSwitch = null, ?string $id = null, string $label = '', string $description = null, string $descriptionClasses = null)
     {
         $this
             ->addProperty('id', $id ?? 'id_' . md5(microtime(true)))
@@ -19,8 +19,8 @@ class Checkbox extends Component
             ->addProperty('description', $description)
         ;
 
-        $this->componentProperties['checkboxClasses'] = 'cursor-pointer w-5 h-5 rounded border border-slate-600 peer-focus:ring-4 peer-focus:ring-blue-800 mt-1';
-        $this->componentProperties['descriptionClasses'] = 'text-sm text-slate-500';
+        $this->componentProperties['checkboxClasses'] = 'cursor-pointer w-6 h-6 rounded border peer-focus:ring-4 peer-focus:ring-blue-800 mt-1 [&>*]:hidden peer-checked:[&>*]:block';
+        $this->componentProperties['descriptionClasses'] = $descriptionClasses ?? 'text-sm text-slate-500';
     }
 
     public function render(): View
