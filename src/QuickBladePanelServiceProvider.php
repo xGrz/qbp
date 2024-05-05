@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use xGrz\Qbp\View\Components\Button;
 use xGrz\Qbp\View\Components\Form\Checkbox;
+use xGrz\Qbp\View\Components\Form\Radio;
 use xGrz\Qbp\View\Components\Form\Select;
 use xGrz\Qbp\View\Components\Paper;
 use xGrz\Qbp\View\Components\Table\Table;
@@ -54,6 +55,7 @@ class QuickBladePanelServiceProvider extends ServiceProvider
         Blade::component('p-td', TableCell::class);
 
         Blade::component('p-checkbox', Checkbox::class);
+        Blade::component('p-radio', Radio::class);
         Blade::component('p-select', Select::class);
     }
 
