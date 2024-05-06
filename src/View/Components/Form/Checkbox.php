@@ -18,9 +18,12 @@ class Checkbox extends Component
         $this
             ->addProperty('id', $id ?? 'id_' . md5(microtime(true)))
             ->addProperty('label', $label)
-            ->addProperty('description', $description)
-            ->addProperty('switchClasses', self::getSwitchClasses())
-            ->addProperty('checkboxClasses', self::getCheckboxClasses());;
+            ->addProperty('description', $description);
+
+        $this->asSwitch
+            ? $this->addProperty('switchClasses', self::getSwitchClasses())
+            : $this->addProperty('checkboxClasses', self::getCheckboxClasses());
+
         $this->componentProperties['descriptionClasses'] = $descriptionClasses ?? 'text-sm text-slate-500';
     }
 
