@@ -29,14 +29,18 @@ trait WithFormHelper
         return join(' ', $definition ?? []);
     }
 
-    protected function getBackground(string $type = null): string
+    protected function getColor(string $type = null, bool $asTextColor = false): string
     {
-        return match ($type) {
-            'active' => 'bg-slate-600',
-            'disabled' => 'bg-slate-800',
-            'disabled-active' => 'bg-slate-800/90',
-            default => 'bg-slate-700'
+        $color = match ($type) {
+            'active' => 'bg-red-600',
+            'disabled' => 'bg-grey-800',
+            'disabled-active' => 'bg-blue-800/90',
+            default => 'bg-slate-yellow'
         };
+
+        return $asTextColor
+            ? str_replace('bg-', 'text-', $color)
+            : $color;
     }
 
     protected function getRing(): string
@@ -71,83 +75,128 @@ trait WithFormHelper
         };
     }
 
-    protected function getSwitchClasses(): string
+    protected function getCheckboxClasses(): string
     {
-        $checkbox = [];
-//        $checkbox['objectDefinition'] = 'w-10 h-5 shrink-0 grow-0 rounded-full transition-all cursor-pointer';
-//        $checkbox['mechanic'] = [
-//            'peer-checked' => 'pl-5 [&>*]:drop-shadow-[0_0_.4rem_rgba(255,255,255,.9)]'
-//        ];
-//        $checkbox['ring'] = ['peer-focus' => self::getRing()];
-//        $checkbox['background'] = [
-//            self::getBackground(),
-//            'peer-checked' => self::getBackgroundChecked(),
-//            'peer-disabled' => self::getBackgroundDisabled(),
-//            'peer-disabled:peer-checked' => self::getBackgroundDisabledChecked(),
-//        ];
-//        $checkbox['border'] = self::getBorder();
-//        $checkbox['disabled'] = [
-//            'peer-disabled' => self::getDisabledBorder() . ' [&>*]:drop-shadow-none peer-disabled:cursor-not-allowed',
-//        ];
-//        $checkbox['circle'] = [
-//            '[&>*]' => 'bg-wite',
-//            'peer-checked:[&>*]' => 'bg-white',
-//            'peer-disabled:[&>*]' => 'bg-gray-700 border-gray-600',
-//            'peer-disabled:peer-checked:[&>*]' => 'bg-gray-600'
-//        ];
-//
+        $checkbox['object'] = [
+            'w-6 h-6 shrink-0 grow-0 rounded transition-all cursor-pointer border',
+            self::getBorder(),
+            '[&>*]' => 'hidden'
+        ];
+        $checkbox['active'] = [
+            'peer-checked:[&>*]' => 'block text-yellow-500',
+        ];
         return self::buildElementClasses($checkbox);
     }
 
-    protected function getCheckboxClasses(): string
+    protected function getSwitchClasses(): string
     {
-        $checkbox = [];
-//        $checkbox['field'] = 'w-6 h-6 shrink-0 grow-0 rounded-md inline-flex items-center mt-1 text-white';
-//        $checkbox['checkboxMechanic'] = '[&>*]:hidden peer-checked:[&>*]:block peer-checked:drop-shadow-[0_0_.4rem_rgba(255,255,255,.4)]';
-//        $checkbox['ring'] = ['peer-focus' => self::getRing()];
-//        $checkbox['background'] = [
-//            self::getBackground(),
-//            'peer-checked:' . self::getBackgroundChecked(),
-//            'peer-disabled:' . self::getBackgroundDisabled(),
-//            'peer-disabled:peer-checked:' . self::getBackgroundDisabledChecked(),
-//            'peer-checked:[&>div]:bg-white  peer-disabled:[&>div]:bg-white/15'
-//
-//        ];
-//        $checkbox['border'] = self::getBorder();
-//        $checkbox['disabled'] = [
-//            self::getDisabledBorder(),
-//            'peer-disabled:[&>div]:drop-shadow-[0_0_.4rem_rgba(255,255,255,.1)] peer-disabled:cursor-not-allowed'
-//        ];
-        return self::buildElementClasses($checkbox);
+        $switch['object'] = [
+            'w-10 h-5 shrink-0 grow-0 rounded-full transition-all cursor-pointer border',
+            self::getBorder(),
+            '[&>*]' => 'h-full bg-yellow-600 rounded-full'
+        ];
+        $switch['active'] = [
+            'peer-checked' => 'pl-5'
+        ];
+        return self::buildElementClasses($switch);
     }
 
     protected function getRadioClasses(): string
     {
-        $radio['area'] = ['shrink-0 mt-0.5 flex items-stretch w-6 h-6 border cursor-pointer', 'rounded-full', self::getBorder()];
-        $radio['ring']['peer-focus'] = self::getRing();
-        $radio['state-empty'] = [
-            '[&>*]:hidden',
-            self::getBackground()
+        $radio['object'] = [
+            'w-6 h-6 shrink-0 grow-0 rounded-full transition-all cursor-pointer border',
+            self::getBorder(),
+            'flex items-center [&>*]:m-auto'
         ];
-        $radio['state-selected'] = [
-            'peer-checked' => ['drop-shadow-[0_0_.4rem_rgba(255,255,255,.4)]', self::getBackground('active')],
-            'peer-checked:[&>*]' => 'block self-center w-3 h-3 bg-slate-50 rounded-full m-auto',
-        ];
-        $radio['state-disabled'] = [
-            'peer-disabled' => [self::getBorder('disabled'), self::getBackground('disabled'), 'cursor-not-allowed']
-        ];
-        $radio['state-disabled-selected'] = [
-            'peer-disabled:peer-checked' => [
-                self::getBorder('disabled-active'),
-                self::getBackground('disabled-active'),
-                'drop-shadow-none',
-            ],
-            'peer-disabled:peer-checked:[&>*]' => ['bg-slate-500']
-
+        $radio['active'] = [
+            'peer-checked:[&>*]' => 'w-3 h-3 bg-yellow-600 rounded-full'
         ];
         return self::buildElementClasses($radio);
     }
 
+//    protected function getSwitchClasses(): string
+//    {
+//        $switch['area'] = [
+//            'w-10 h-5 shrink-0 grow-0 rounded-full transition-all cursor-pointer border',
+//            self::getBorder(),
+//            '[&>*]' => 'h-full bg-white rounded-full'
+//        ];
+//        $switch['ring']['peer-focus'] = self::getRing();
+//        $switch['state-empty'] = [
+//            self::getColor(), self::getBorder()
+//        ];
+//        $switch['state-selected'] = [
+//            'peer-checked' => ['drop-shadow-[0_0_.4rem_rgba(255,255,255,.4)]', self::getColor('active'), 'pl-5'],
+//        ];
+//        $switch['state-disabled'] = [
+//            'peer-disabled' => [self::getBorder('disabled'), self::getColor('disabled'), 'cursor-not-allowed']
+//        ];
+//        $switch['state-disabled-selected'] = [
+//            'peer-disabled:peer-checked' => [
+//                self::getBorder('disabled-active'),
+//                self::getColor('disabled-active'),
+//                'drop-shadow-none',
+//            ],
+//            'peer-disabled:peer-checked:[&>*]' => ['bg-slate-500']
+//
+//        ];
+//        return self::buildElementClasses($switch);
+//    }
+//
+//    protected function getCheckboxClasses(): string
+//    {
+//        $checkbox = [];
+//        $checkbox['area'] = ['shrink-0 mt-0.5 flex items-stretch w-6 h-6 border cursor-pointer', 'rounded-md', self::getBorder()];
+//        $checkbox['ring']['peer-focus'] = self::getRing();
+//        $checkbox['state-empty'] = [
+//            '[&>*]:hidden',
+//            self::getColor()
+//        ];
+//        $checkbox['state-selected'] = [
+//            'peer-checked' => ['drop-shadow-[0_0_.4rem_rgba(255,255,255,.4)]', self::getColor('active')],
+//            'peer-checked:[&>*]' => 'block self-center m-auto',
+//        ];
+//        $checkbox['state-disabled'] = [
+//            'peer-disabled' => [self::getBorder('disabled'), self::getColor('disabled'), 'cursor-not-allowed']
+//        ];
+//        $checkbox['state-disabled-selected'] = [
+//            'peer-disabled:peer-checked' => [
+//                self::getBorder('disabled-active'),
+//                self::getColor('disabled-active'),
+//                'drop-shadow-none',
+//            ],
+//            'peer-disabled:peer-checked:[&>*]' => ['bg-slate-500']
+//
+//        ];
+//        return self::buildElementClasses($checkbox);
+//    }
+//
+//    protected function getRadioClasses(): string
+//    {
+//        $radio['area'] = ['shrink-0 mt-0.5 flex items-stretch w-6 h-6 border cursor-pointer', 'rounded-full', self::getBorder()];
+//        $radio['ring']['peer-focus'] = self::getRing();
+//        $radio['state-empty'] = [
+//            '[&>*]:hidden',
+//            self::getColor()
+//        ];
+//        $radio['state-selected'] = [
+//            'peer-checked' => ['drop-shadow-[0_0_.4rem_rgba(255,255,255,.4)]', self::getColor('active')],
+//            'peer-checked:[&>*]' => 'block self-center w-3 h-3 bg-slate-50 rounded-full m-auto',
+//        ];
+//        $radio['state-disabled'] = [
+//            'peer-disabled' => [self::getBorder('disabled'), self::getColor('disabled'), 'cursor-not-allowed']
+//        ];
+//        $radio['state-disabled-selected'] = [
+//            'peer-disabled:peer-checked' => [
+//                self::getBorder('disabled-active'),
+//                self::getColor('disabled-active'),
+//                'drop-shadow-none',
+//            ],
+//            'peer-disabled:peer-checked:[&>*]' => ['bg-slate-500']
+//
+//        ];
+//        return self::buildElementClasses($radio);
+//    }
 
     protected function getLabelContainerClasses(): string
     {

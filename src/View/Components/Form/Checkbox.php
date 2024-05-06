@@ -18,6 +18,7 @@ class Checkbox extends Component
         $this
             ->addProperty('id', $id ?? 'id_' . md5(microtime(true)))
             ->addProperty('label', $label)
+            ->addProperty('labelContainerClasses', self::getLabelContainerClasses())
             ->addProperty('description', $description);
 
         $this->asSwitch
