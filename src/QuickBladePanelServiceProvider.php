@@ -14,6 +14,8 @@ use xGrz\Qbp\View\Components\Form\Select;
 use xGrz\Qbp\View\Components\Link;
 use xGrz\Qbp\View\Components\NavItem;
 use xGrz\Qbp\View\Components\NotFound;
+use xGrz\Qbp\View\Components\Pagination\Pagination;
+use xGrz\Qbp\View\Components\Pagination\PaginationItem;
 use xGrz\Qbp\View\Components\Paper;
 use xGrz\Qbp\View\Components\Status;
 use xGrz\Qbp\View\Components\Table\Table;
@@ -24,6 +26,7 @@ use xGrz\Qbp\View\Components\Table\TableHeader;
 use xGrz\Qbp\View\Components\Table\TableHeading;
 use xGrz\Qbp\View\Components\Table\TableRow;
 use xGrz\Qbp\View\Components\TextInput;
+
 
 class QuickBladePanelServiceProvider extends ServiceProvider
 {
@@ -50,7 +53,10 @@ class QuickBladePanelServiceProvider extends ServiceProvider
         Blade::component('p-button', Button::class);
         Blade::component('p-link', Link::class);
 
-        Blade::component('p-textinput', TextInput::class);
+        Blade::component('p-pagination', Pagination::class);
+        Blade::component('p-pagination-item', PaginationItem::class);
+
+
         Blade::component('p-flash-messages', FlashMessages::class);
         Blade::component('p-toast', Toast::class);
 
@@ -62,6 +68,7 @@ class QuickBladePanelServiceProvider extends ServiceProvider
         Blade::component('p-th', TableHeading::class);
         Blade::component('p-td', TableCell::class);
 
+        Blade::component('p-textinput', TextInput::class);
         Blade::component('p-checkbox', Checkbox::class);
         Blade::component('p-radio', Radio::class);
         Blade::component('p-select', Select::class);
