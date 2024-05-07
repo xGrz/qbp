@@ -12,6 +12,7 @@ use xGrz\Qbp\View\Components\Form\Select;
 use xGrz\Qbp\View\Components\NavItem;
 use xGrz\Qbp\View\Components\NotFound;
 use xGrz\Qbp\View\Components\Paper;
+use xGrz\Qbp\View\Components\Status;
 use xGrz\Qbp\View\Components\Table\Table;
 use xGrz\Qbp\View\Components\Table\TableBody;
 use xGrz\Qbp\View\Components\Table\TableCell;
@@ -62,6 +63,7 @@ class QuickBladePanelServiceProvider extends ServiceProvider
 
         Blade::component('p-nav-item', NavItem::class);
         Blade::component('p-not-found', NotFound::class);
+        Blade::component('p-status', Status::class);
     }
 
     private function registerBladeShares(): void
