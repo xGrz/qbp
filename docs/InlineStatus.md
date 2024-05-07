@@ -1,5 +1,6 @@
 # Status (inline)
 
+![Status examples](images/status.png)
 
 ## Direct way to set label and color
 You can render status component manually defining label and color
