@@ -1,6 +1,6 @@
 <?php
 
-namespace xGrz\Qbp\View\Components;
+namespace xGrz\Qbp\View\Components\Flash;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -41,7 +41,7 @@ class Toast extends Component
 
     private function renderToast(): View
     {
-        return view('p::components.toast', [
+        return view('p::flash.toast', [
             'message' => $this->message,
             'severity' => $this->severity,
             'duration' => $this->duration,

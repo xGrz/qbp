@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use xGrz\Qbp\View\Components\Button;
+use xGrz\Qbp\View\Components\Flash\FlashMessages;
+use xGrz\Qbp\View\Components\Flash\Toast;
 use xGrz\Qbp\View\Components\Form\Checkbox;
 use xGrz\Qbp\View\Components\Form\Radio;
 use xGrz\Qbp\View\Components\Form\Select;
@@ -21,7 +23,6 @@ use xGrz\Qbp\View\Components\Table\TableHeader;
 use xGrz\Qbp\View\Components\Table\TableHeading;
 use xGrz\Qbp\View\Components\Table\TableRow;
 use xGrz\Qbp\View\Components\TextInput;
-use xGrz\Qbp\View\Components\Toast;
 
 class QuickBladePanelServiceProvider extends ServiceProvider
 {
@@ -47,6 +48,7 @@ class QuickBladePanelServiceProvider extends ServiceProvider
         Blade::component('p-paper', Paper::class);
         Blade::component('p-button', Button::class);
         Blade::component('p-textinput', TextInput::class);
+        Blade::component('p-flash-messages', FlashMessages::class);
         Blade::component('p-toast', Toast::class);
 
         Blade::component('p-table', Table::class);

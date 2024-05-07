@@ -42,6 +42,6 @@ class TextInput extends Component
 
     public function render(): View
     {
-        return view('p::components.textinput', $this->componentProperties);
+        return view('p::form.textinput', $this->componentProperties);
     }
 }
