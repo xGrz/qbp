@@ -14,13 +14,11 @@ class Radio extends Component
     use WithComponentProps;
     use WithFormHelper;
 
-    public function __construct(string $label = null, string $name = null, string $value = null, string $id = null, string $description = null)
+    public function __construct(string $id = null, string $label = null, string $description = null)
     {
         self::setupClasses();
         $this
-            ->addProperty('name', $name)
-            ->addProperty('value', $value)
-            ->addProperty('id', $id ?? 'radio_' . md5(microtime(true)))
+            ->addProperty('id', $id ?? 'radio_' . md5(microtime(true) . $label . $description))
             ->addProperty('label', $label)
             ->addProperty('description', $description)
             ->addProperty('radioClasses', self::getRadioClasses())

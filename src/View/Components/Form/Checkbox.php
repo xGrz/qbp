@@ -13,10 +13,10 @@ class Checkbox extends Component
     use WithFormHelper;
 
 
-    public function __construct(protected ?string $asSwitch = null, ?string $id = null, string $label = '', string $description = null, string $descriptionClasses = null)
+    public function __construct(string $id = null, string $label = '', string $description = null, protected ?string $asSwitch = null)
     {
         $this
-            ->addProperty('id', $id ?? 'id_' . md5(microtime(true)))
+            ->addProperty('id', $id ?? 'checkbox_' . md5(microtime(true) . $label . $description))
             ->addProperty('label', $label)
             ->addProperty('labelContainerClasses', self::getLabelContainerClasses())
             ->addProperty('description', $description);
