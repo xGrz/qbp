@@ -21,7 +21,7 @@
 <body class="flex flex-col min-h-full">
 
 @include($qbp_navigationTemplate)
-@include('p::status')
+@include('p::flashMessages')
 
 <main class="container px-4 mx-auto my-2 grow">
     @yield('content')
