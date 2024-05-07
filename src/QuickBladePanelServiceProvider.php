@@ -9,6 +9,8 @@ use xGrz\Qbp\View\Components\Button;
 use xGrz\Qbp\View\Components\Form\Checkbox;
 use xGrz\Qbp\View\Components\Form\Radio;
 use xGrz\Qbp\View\Components\Form\Select;
+use xGrz\Qbp\View\Components\NavItem;
+use xGrz\Qbp\View\Components\NotFound;
 use xGrz\Qbp\View\Components\Paper;
 use xGrz\Qbp\View\Components\Table\Table;
 use xGrz\Qbp\View\Components\Table\TableBody;
@@ -57,6 +59,9 @@ class QuickBladePanelServiceProvider extends ServiceProvider
         Blade::component('p-checkbox', Checkbox::class);
         Blade::component('p-radio', Radio::class);
         Blade::component('p-select', Select::class);
+
+        Blade::component('p-nav-item', NavItem::class);
+        Blade::component('p-not-found', NotFound::class);
     }
 
     private function registerBladeShares(): void
