@@ -68,7 +68,7 @@ class QuickBladePanelServiceProvider extends ServiceProvider
         Blade::component('p-th', TableHeading::class);
         Blade::component('p-td', TableCell::class);
 
-        Blade::component('p-textinput', TextInput::class);
+        Blade::component('p-input', TextInput::class);
         Blade::component('p-checkbox', Checkbox::class);
         Blade::component('p-radio', Radio::class);
         Blade::component('p-select', Select::class);
