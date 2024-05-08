@@ -88,7 +88,7 @@ You can pass own tailwind classes as `divider` value to provide your own styles 
             <x-p-td>Data 5</x-p-td>
         </x-p-tr>
     </x-p-tbody>
-    <x-p-tfooter>
+    <x-p-tfoot>
         <x-p-tr>
             <x-p-td>Footer 1</x-p-td>
             <x-p-td>Footer 2</x-p-td>
@@ -96,6 +96,6 @@ You can pass own tailwind classes as `divider` value to provide your own styles 
             <x-p-td>Footer 4</x-p-td>
             <x-p-td>Footer 5</x-p-td>
         </x-p-tr>
-    </x-p-tfooter>
+    </x-p-tfoot>
 </x-p-table>
 ```

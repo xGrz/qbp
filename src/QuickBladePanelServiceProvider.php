@@ -63,7 +63,7 @@ class QuickBladePanelServiceProvider extends ServiceProvider
         Blade::component('p-table', Table::class);
         Blade::component('p-thead', TableHeader::class);
         Blade::component('p-tbody', TableBody::class);
-        Blade::component('p-tfooter', TableFooter::class);
+        Blade::component('p-tfoot', TableFooter::class);
         Blade::component('p-tr', TableRow::class);
         Blade::component('p-th', TableHeading::class);
         Blade::component('p-td', TableCell::class);
