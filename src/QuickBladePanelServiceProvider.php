@@ -11,11 +11,13 @@ use xGrz\Qbp\View\Components\Flash\Toast;
 use xGrz\Qbp\View\Components\Form\Checkbox;
 use xGrz\Qbp\View\Components\Form\Radio;
 use xGrz\Qbp\View\Components\Form\Select;
+use xGrz\Qbp\View\Components\Form\TextInput;
 use xGrz\Qbp\View\Components\Link;
 use xGrz\Qbp\View\Components\NavItem;
 use xGrz\Qbp\View\Components\NotFound;
+use xGrz\Qbp\View\Components\Pagination\LivewirePagination;
+use xGrz\Qbp\View\Components\Pagination\LivewirePaginationItem;
 use xGrz\Qbp\View\Components\Pagination\Pagination;
-use xGrz\Qbp\View\Components\Pagination\PaginationItem;
 use xGrz\Qbp\View\Components\Paper;
 use xGrz\Qbp\View\Components\Status;
 use xGrz\Qbp\View\Components\Table\Table;
@@ -25,7 +27,6 @@ use xGrz\Qbp\View\Components\Table\TableFooter;
 use xGrz\Qbp\View\Components\Table\TableHeader;
 use xGrz\Qbp\View\Components\Table\TableHeading;
 use xGrz\Qbp\View\Components\Table\TableRow;
-use xGrz\Qbp\View\Components\TextInput;
 
 
 class QuickBladePanelServiceProvider extends ServiceProvider
@@ -54,8 +55,6 @@ class QuickBladePanelServiceProvider extends ServiceProvider
         Blade::component('p-link', Link::class);
 
         Blade::component('p-pagination', Pagination::class);
-        Blade::component('p-pagination-item', PaginationItem::class);
-
 
         Blade::component('p-flash-messages', FlashMessages::class);
         Blade::component('p-toast', Toast::class);

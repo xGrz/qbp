@@ -9,17 +9,17 @@ use Illuminate\View\Component;
 
 class Pagination extends Component
 {
-    private bool $viewInfoOnly = false;
+    protected bool $livewire = false;
 
-    public function __construct(public LengthAwarePaginator $source, string $infoOnly = null)
+    public function __construct(protected LengthAwarePaginator $source, string $livewire = null)
     {
-        $this->viewInfoOnly = (bool)$infoOnly;
+        $this->livewire = (bool) $livewire;
     }
 
-    public function render(): Htmlable|View
+    public function render(): Htmlable|View|string
     {
-        return $this->viewInfoOnly
-            ? $this->source->links('p::pagination.info.results')
-            : $this->source->links('p::pagination.templates.full-pagination');
+        return $this->livewire
+            ? $this->source->links('p::pagination.livewire-pagination')
+            : $this->source->links('p::pagination.laravel-pagination');
     }
 }

@@ -7,17 +7,21 @@ use Illuminate\View\Component;
 
 class PaginationItem extends Component
 {
+    protected bool $disabled = false;
+    protected bool $livewire = false;
 
-    public function __construct(public ?string $href = null)
+    public function __construct(string $disabled = null, string $livewire = null)
     {
+        $this->disabled = (bool) $disabled;
+        $this->livewire = (bool) $livewire;
     }
 
     public function render(): View
     {
-        return !$this->href
+        return $this->disabled
             ? view('p::pagination.items.disabled')
             : view('p::pagination.items.active', [
-                'href' => $this->href,
+                'livewire' => $this->livewire
             ]);
     }
 }
