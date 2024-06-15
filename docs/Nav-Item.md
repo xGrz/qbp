@@ -15,7 +15,7 @@ As a content of nav-item you can pass text or some elements. Typically, you cas 
 ```bladehtml
 <x-p-nav-item route-name="tests">
     <x-p::icons.truck class="w-8 h-8"/>
-    <div>Shipment</div>
+    <div>ShipmentDraft</div>
 </x-p-nav-item>
 ```
 In that case component will render icon and text horizontally, but if your screen is smaller then tailwind `md` definition it changes to vertically placement.

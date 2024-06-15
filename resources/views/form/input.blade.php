@@ -33,11 +33,8 @@
     @endif
 
     @if($withTextError && $hasError)
-        @error($attributes->whereStartsWith('wire:model')->first())
-        <div class="text-sm text-red-500 order-3">{{$message}} LW</div>
-        @enderror
         @error($attributes->get('name'))
-        <div class="text-sm text-red-500 order-3">{{$message}} BL</div>
+        <div class="text-sm text-red-500 order-3">{{$message}}</div>
         @enderror
     @endif
 
