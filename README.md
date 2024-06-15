@@ -7,7 +7,7 @@ This is free for private and commercial use AS IS.
 ## Installation
 
 ```
-composer require xgrz/quick-blade-panel
+composer require xgrz/qbp
 ```
 
 ## Components
