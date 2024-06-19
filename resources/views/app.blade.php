@@ -12,6 +12,7 @@
     @if($qbp_useAlpine)
         <script src="//unpkg.com/alpinejs" defer></script>
     @endif
+    @yield('head')
     <style>@yield('css')</style>
 </head>
 <body class="flex flex-col min-h-full">
