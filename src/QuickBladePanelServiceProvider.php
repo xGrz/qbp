@@ -9,14 +9,13 @@ use xGrz\Qbp\View\Components\Button;
 use xGrz\Qbp\View\Components\Flash\FlashMessages;
 use xGrz\Qbp\View\Components\Flash\Toast;
 use xGrz\Qbp\View\Components\Form\Checkbox;
+use xGrz\Qbp\View\Components\Form\DatePicker;
 use xGrz\Qbp\View\Components\Form\Radio;
 use xGrz\Qbp\View\Components\Form\Select;
 use xGrz\Qbp\View\Components\Form\TextInput;
 use xGrz\Qbp\View\Components\Link;
 use xGrz\Qbp\View\Components\NavItem;
 use xGrz\Qbp\View\Components\NotFound;
-use xGrz\Qbp\View\Components\Pagination\LivewirePagination;
-use xGrz\Qbp\View\Components\Pagination\LivewirePaginationItem;
 use xGrz\Qbp\View\Components\Pagination\Pagination;
 use xGrz\Qbp\View\Components\Paper;
 use xGrz\Qbp\View\Components\Status;
@@ -71,6 +70,7 @@ class QuickBladePanelServiceProvider extends ServiceProvider
         Blade::component('p-checkbox', Checkbox::class);
         Blade::component('p-radio', Radio::class);
         Blade::component('p-select', Select::class);
+        Blade::component('p-datepicker', DatePicker::class);
 
         Blade::component('p-nav-item', NavItem::class);
         Blade::component('p-not-found', NotFound::class);
