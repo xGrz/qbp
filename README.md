@@ -27,6 +27,10 @@ composer require xgrz/qbp
 * [Default view template](docs/DefaultViewTemplate.md)
 * [View with paginated table](docs/FullViewWithTable.md)
 
+## Helpers
+* [Money](docs/Helpers.md#Money)
+* [Postal code](docs/Helpers.md#postal-code)
+
 ## Publish templates
 
 You can publish templates by running in console:
