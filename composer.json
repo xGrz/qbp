@@ -9,7 +9,10 @@
     "autoload": {
         "psr-4": {
             "xGrz\\Qbp\\": "src/"
-        }
+        },
+        "files": [
+            "src/Helpers/global-helpers.php"
+        ]
     },
     "extra": {
         "laravel": {

@@ -75,6 +75,9 @@ class Money
         return false;
     }
 
+    /**
+     * @throws MoneyValidationException
+     */
     public static function from($amount): static
     {
         return new self($amount);
