@@ -8,6 +8,7 @@ use xGrz\Qbp\Exceptions\MoneyValidationException;
 class Money
 {
     private int|float $amount = 0;
+    private bool $shouldDisplayZero = true;
 
     /**
      * @throws MoneyValidationException
@@ -38,13 +39,21 @@ class Money
         return $this->amount;
     }
 
-    public function format($decimalSeparator = ',', $thousandsSeparator = ''): string
+    public function format($decimalSeparator = ',', $thousandsSeparator = ''): ?string
     {
+        if (!$this->shouldDisplayZero && $this->amount ==0) return null;
+
         return str(Number::format($this->amount / 100, 2))
             ->replace('.', '-')
             ->replace(',', $thousandsSeparator)
             ->replace('-', $decimalSeparator)
             ->toString();
+    }
+
+    public function formatZero(bool $shouldDisplayZero = true): static
+    {
+        $this->shouldDisplayZero = $shouldDisplayZero;
+        return $this;
     }
 
     public function multiply($multiplier): static
@@ -65,6 +74,11 @@ class Money
         return $this;
     }
 
+    public function __toString(): string
+    {
+        return $this->format();
+    }
+
     public static function isValid($amount): bool
     {
         try {
@@ -78,8 +92,8 @@ class Money
     /**
      * @throws MoneyValidationException
      */
-    public static function from($amount): static
+    public static function from($amount, bool $shouldDisplayZero = true): static
     {
-        return new self($amount);
+        return (new self($amount))->formatZero($shouldDisplayZero);
     }
 }
