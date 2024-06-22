@@ -8,9 +8,9 @@ if (!function_exists('money')) {
     /**
      * @throws MoneyValidationException
      */
-    function money(string|int|float|null $amount): Money
+    function money(string|int|float|null $amount, bool $shouldDisplayZero = true): Money
     {
-        return Money::from($amount);
+        return Money::from($amount, $shouldDisplayZero);
     }
 
 }
