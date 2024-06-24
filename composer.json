@@ -14,6 +14,11 @@
             "src/Helpers/global-helpers.php"
         ]
     },
+    "autoload-dev": {
+        "psr-4": {
+            "xGrz\\Qbp\\Tests": "tests/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [

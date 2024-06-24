@@ -40,6 +40,11 @@ class PostalCode
         return $this;
     }
 
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
     /**
      * @throws UnknownCountryException
      * @throws InvalidPostcodeException
