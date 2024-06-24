@@ -13,12 +13,13 @@ class Money
     private string $thousandsSeparator = '';
     private ?string $currency = null;
     private bool $currencyBeforeAmount = false;
+    private bool $currencySeparation = true;
 
 
     /**
      * @throws MoneyValidationException
      */
-    private function __construct($amount)
+    private function __construct(int|float|string|null $amount)
     {
         if (empty($amount)) $amount = 0;
         $amount = is_numeric($amount) ? $amount : $this->toNumeric($amount);
@@ -48,10 +49,11 @@ class Money
         return $this;
     }
 
-    public function currency(string|null $currency, bool $beforeAmount = false): static
+    public function currency(string|null $currency, bool $beforeAmount = false, bool $withSpace = true): static
     {
         $this->currency = $currency;
         $this->currencyBeforeAmount = $beforeAmount;
+        $this->currencySeparation = $withSpace;
         return $this;
     }
 
@@ -75,11 +77,15 @@ class Money
             ->replace('@', $this->decimalSeparator)
             ->when(
                 $this->currency && $this->currencyBeforeAmount,
-                fn($amount) => str($amount)->prepend($this->currency)
+                fn($amount) => str($amount)
+                    ->when($this->currencySeparation, fn($amount) => str($amount)->prepend(' '))
+                    ->prepend($this->currency)
             )
             ->when(
                 $this->currency && !$this->currencyBeforeAmount,
-                fn($amount) => str($amount)->append($this->currency)
+                fn($amount) => str($amount)
+                    ->when($this->currencySeparation, fn($amount) => str($amount)->append(' '))
+                    ->append($this->currency)
             )
             ->toString();
     }
@@ -126,7 +132,7 @@ class Money
     /**
      * @throws MoneyValidationException
      */
-    public static function from($amount, bool $shouldDisplayZero = true): static
+    public static function from(int|float|string|null $amount, bool $shouldDisplayZero = true): static
     {
         return (new self($amount))->shouldDisplayZero($shouldDisplayZero);
     }
