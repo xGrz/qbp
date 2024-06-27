@@ -29,8 +29,9 @@ class PostalCode
         return $this;
     }
 
-    public function setCountry($country): static
+    public function setCountry(string $country = null): static
     {
+        if (empty($country)) return $this;
         $this->country = str($country)
             ->upper();
 
